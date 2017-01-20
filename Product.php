@@ -10,6 +10,7 @@ class Product {
 		$this->setId($id);
 		$this->setName($name);
 		$this->setPrix($prix);
+		
 
 
 	}
