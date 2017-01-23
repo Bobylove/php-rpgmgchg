@@ -1,13 +1,14 @@
 <?php 
-require_once 'models/Product.php';
+require_once '../models/Product.php';
 
 class Vegetable extends Product {
 
 	private $_productorName = "";
-	private $_harvestedAt = "";
+	private $_harvestedAt = 0;
 
-	public function __construct($id,$name,$prix,$harv){
-		parent::__construct($id,$name,$prix,$harv);
+	public function __construct($id,$name,$prix,$productor,$harv){
+		parent::__construct($id,$name,$prix);
+		$this->setProductorName($productor);
 		$this->setHarverstedAt($harv);
 
 	}
@@ -20,6 +21,7 @@ class Vegetable extends Product {
 	}
 	public function setHarverstedAt($harv){
 		$this->_harvestedAt = $harv ;
+
 	}
 	public function setProductorName($productor){
 		$this->_productorName = $productor ;
@@ -27,12 +29,12 @@ class Vegetable extends Product {
 
 
 	public function isFresh(){
-		$oneDay = 1;
-		if($_harvestedAt > $oneDay ){
-			return false;
+		$oneDay = 3;
+		if($this->_harvestedAt >= $oneDay ){
+			return "Produit pas frais ";
 
 		}else{
-			return true;
+			return "Produit frais ";
 		}
 
 

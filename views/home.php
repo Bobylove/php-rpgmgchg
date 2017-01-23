@@ -41,7 +41,7 @@
 					<td><?php echo  (method_exists($value, 'getPrix')) ? $value->getPrix() : null ;?></td>
 					<td><?php echo  (method_exists($value, 'getBrand')) ? $value->getBrand() : null ;?></td>
 					<td><?php echo  (method_exists($value, 'getProductorName')) ? $value->getProductorName() :null;?></td>
-					<td><?php echo  (method_exists($value, 'getHarverstedAt')) ? $value->getHarverstedAt() : null;?></td>
+					<td><?php echo  (method_exists($value, 'isFresh')) ? $value->isFresh() ." récolter il y a : " . $value->getHarverstedAt() . "  jours "  : null ?></td>
 				</tr>
 			<?php  } ?>
 			</table>
