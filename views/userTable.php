@@ -1,5 +1,5 @@
 <?php 
-$usez = require('data/users.php');
+$usez = require('../data/users.php');
 
 
 foreach ($usez as $value) {
