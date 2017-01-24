@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
 </head>
 <body>
+<h1><a href="shoping.php">LIENS SHOPING FORM</a></h1>
+<br>
+<br>
 	<h1>
 		<table class="ui table">
 			<tr>
@@ -50,8 +53,8 @@
 		<br>
 		<div class="panier"><?php 
 			$client = require('../models/Client.php');	
-			$c = new Clients("pomme",2);
-			$d = new Clients("poire",6);
+			$c = new Clients("pomme",2.39);
+			$d = new Clients("poire",6.45);
 
 			echo $c->getCart() . " " ; 
 			echo $c->getBuy() ." " . " € " . " " ;
