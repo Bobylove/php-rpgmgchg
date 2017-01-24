@@ -35,19 +35,33 @@
 
 			?>
 			<?php foreach ($prod as $key => $value) { ?>
-				<tr>
-					<td><?php echo  (method_exists($value, 'getId')) ? $value->getId() : null ;?></td>
-					<td><?php echo  (method_exists($value, 'getName')) ? $value->getName() : null ;?></td>
-					<td><?php echo  (method_exists($value, 'getPrix')) ? $value->getPrix() : null ;?></td>
-					<td><?php echo  (method_exists($value, 'getBrand')) ? $value->getBrand() : null ;?></td>
-					<td><?php echo  (method_exists($value, 'getProductorName')) ? $value->getProductorName() :null;?></td>
-					<td><?php echo  (method_exists($value, 'isFresh')) ? $value->isFresh() ." récolter il y a : " . $value->getHarverstedAt() . "  jours "  : null ?></td>
-				</tr>
+			<tr>
+				<td><?php echo  (method_exists($value, 'getId')) ? $value->getId() : null ;?></td>
+				<td><?php echo  (method_exists($value, 'getName')) ? $value->getName() : null ;?></td>
+				<td><?php echo  (method_exists($value, 'getPrix')) ? $value->getPrix() . " €" : null ;?></td>
+				<td><?php echo  (method_exists($value, 'getBrand')) ? $value->getBrand() : null ;?></td>
+				<td><?php echo  (method_exists($value, 'getProductorName')) ? $value->getProductorName() :null;?></td>
+				<td><?php echo  (method_exists($value, 'isFresh')) ? $value->isFresh() ." récolter il y a : " . $value->getHarverstedAt() . "  jours "  : null ?></td>
+			</tr>
 			<?php  } ?>
-			</table>
-			<br>
-			<br>
-			<br>
-		</body>
-		</html>
+		</table>
+		<br>
+		<br>
+		<br>
+		<div class="panier"><?php 
+			$client = require('../models/Client.php');	
+			$c = new Clients("pomme",2);
+			$d = new Clients("poire",6);
+
+			echo $c->getCart() . " " ; 
+			echo $c->getBuy() ." " . " € " . " " ;
+			echo $d->getCart() . " " ; 
+			echo $d->getBuy() ." " . " € " . " " ;
+			
+			?>
+			<h2>total : <?php echo $c->getBuy()+$d->getBuy(). " €";  ?></h2>
+			
+		</div>
+	</body>
+	</html>
 
